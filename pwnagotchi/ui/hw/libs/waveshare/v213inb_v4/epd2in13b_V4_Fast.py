@@ -137,7 +137,7 @@ class EPD:
         self.send_data(0x80)
 
         self.send_command(0x22) # Set display in fast mode
-        self.send_data(0xC0)
+        self.send_data(0xf4)
 
         self.busy()
 
