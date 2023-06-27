@@ -54,11 +54,18 @@ class Waveshare213bV4(DisplayImpl):
         return self._layout
 
     def initialize(self):
-        logging.info("initializing waveshare 2.13inb v4 display")
-        from pwnagotchi.ui.hw.libs.waveshare.v213inb_v4.epd2in13b_V4 import EPD
-        self._display = EPD()
-        self._display.init()
-        self._display.Clear()
+        if self.config['color'] == 'black':
+            logging.info("initializing waveshare 2.13inb v4 display")
+            from pwnagotchi.ui.hw.libs.waveshare.v213inb_v4.epd2in13b_V4 import EPD
+            self._display = EPD()
+            self._display.init()
+            self._display.Clear()
+        elif self.config['color'] == 'fastAndFurious':
+            logging.info("initializing waveshare 2.13inb v4 display in Fast Mode")
+            from pwnagotchi.ui.hw.libs.waveshare.v213inb_v4.epd2in13b_V4_Fast import EPD
+            self._display = EPD()
+            self._display.init()
+            self._display.Clear()
 
     def render(self, canvasBlack = None, canvasRed = None):
         buffer = self._display.getbuffer
