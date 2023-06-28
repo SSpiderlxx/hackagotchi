@@ -228,7 +228,7 @@ class INA219_Status(plugins.Plugin):
 
         capacity = p
         charging = bus_voltage
-        ui.get('ina').set_text((int)capacity + "%"))
+        ui.get('ina').set_text(capacity + "%"))
         if capacity <= 2:
             logging.info('[INA219_Status] Empty battery (<= %s%%): 2% ')
             ui.update(force=True, new_data={'status': 'Battery exhausted, bye ...'})
