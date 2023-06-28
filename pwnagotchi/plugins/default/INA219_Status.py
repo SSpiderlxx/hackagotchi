@@ -209,7 +209,7 @@ class INA219_Status(plugins.Plugin):
         self.ina219 = INA219(addr=0x43)
 
     def on_ui_setup(self, ui):
-        ui.add_element('ina', LabeledValue(color=BLACK, label='INA', value='0%/0V', position=(ui.width() / 2 - 15, ui.height()),
+        ui.add_element('ina', LabeledValue(color=BLACK, label='INA', value='0%/0V', position=(ui.width() / 2 - 15, ui.height() - 13),
                                            label_font=fonts.Bold, text_font=fonts.Medium))
 
     def on_unload(self, ui):
