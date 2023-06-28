@@ -214,7 +214,7 @@ class INA219_Status(plugins.Plugin):
 
     def on_unload(self, ui):
         with ui._lock:
-            ui.remove_element('ups')
+            ui.remove_element('ina')
 
     def on_ui_update(self, ui):
         
@@ -227,9 +227,10 @@ class INA219_Status(plugins.Plugin):
         if(p < 0):p = 0
 
         capacity = p
+        logging.info('[INA219_Status] battery: ' + p)
         charging = bus_voltage
-        ui.set('ina', "{:3.1f}%".format(p))
+        ui.set('ina', "{:3.1f}".format(p))
         if capacity <= 2:
-            logging.info('[INA219_Status] Empty battery (<= %s%%): 2% ')
+            logging.info('[INA219_Status] Empty battery: 2% ')
             ui.update(force=True, new_data={'status': 'Battery exhausted, bye ...'})
             pwnagotchi.shutdown()
