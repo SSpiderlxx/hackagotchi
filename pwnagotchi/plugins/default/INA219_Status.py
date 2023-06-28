@@ -209,7 +209,7 @@ class INA219_Status(plugins.Plugin):
         self.ina219 = INA219(addr=0x43)
 
     def on_ui_setup(self, ui):
-        ui.add_element('ina', LabeledValue(color=BLACK, label='INA', value='0%/0V', position=(ui.width() / 2 + 15, 0),
+        ui.add_element('ina', LabeledValue(color=BLACK, label='INA', value='0%/0V', position=(ui.width() / 2 - 15, ui.height()),
                                            label_font=fonts.Bold, text_font=fonts.Medium))
 
     def on_unload(self, ui):
@@ -230,6 +230,6 @@ class INA219_Status(plugins.Plugin):
         charging = bus_voltage
         ui.set('ina', "%2i%s" % (capacity, charging))
         if capacity <= 2:
-            logging.info('[INA219_Status] Empty battery (<= %s%%): shuting down' % self.options['shutdown'])
+            logging.info('[INA219_Status] Empty battery (<= %s%%): 2% ')
             ui.update(force=True, new_data={'status': 'Battery exhausted, bye ...'})
             pwnagotchi.shutdown()
