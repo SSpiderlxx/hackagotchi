@@ -227,7 +227,7 @@ class INA219_Status(plugins.Plugin):
         if(p < 0):p = 0
 
         capacity = p
-        logging.info('[INA219_Status] battery: ' + p)
+        logging.info('[INA219_Status] battery: ' + str(p))
         charging = bus_voltage
         ui.set('ina', "{:3.1f}".format(p))
         if capacity <= 2:
