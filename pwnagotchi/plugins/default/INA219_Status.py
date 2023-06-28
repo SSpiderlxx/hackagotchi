@@ -210,7 +210,7 @@ class INA219_Status(plugins.Plugin):
 
     def on_ui_setup(self, ui):
         ui.add_element('ina', LabeledValue(color=BLACK, label="", value='0%', position=(ui.width() / 2 + 15, 0),
-                           font=fonts.Medium))
+                           label_font=fonts.Bold, text_font=fonts.Medium))
 
     def on_unload(self, ui):
         with ui._lock:
