@@ -198,7 +198,7 @@ class INA219:
 
 class INA219_Status(plugins.Plugin):
     __author__ = 'leontwemlow@gmail.com'
-    __version__ = '1.0.0'
+    __version__ = '1.0.1'
     __license__ = 'GPL3'
     __description__ = 'A plugin that will add a voltage indicator for the INA219'
 
